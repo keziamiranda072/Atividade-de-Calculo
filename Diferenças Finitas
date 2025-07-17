@@ -1,0 +1,15 @@
+def diferenca_finita(f, x, h=1e-5, metodo='central'):
+    if metodo == 'progressiva':
+        return (f(x + h) - f(x)) / h
+    if metodo == 'regressiva':
+        return (f(x) - f(x - h)) / h
+    if metodo == 'central':
+        return (f(x + h) - f(x - h)) / (2 * h)
+    raise ValueError("Método inválido.")
+
+import math
+
+f = lambda x: math.sin(x)
+x = math.pi / 4
+
+print(diferenca_finita(f, x, metodo='central'))
