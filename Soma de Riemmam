@@ -1,1 +1,18 @@
+def soma_riemann(f, a, b, n, tipo='meio'):
+    h = (b - a) / n
+    soma = 0
+    for i in range(n):
+        if tipo == 'esquerda':
+            x = a + i * h
+        elif tipo == 'direita':
+            x = a + (i + 1) * h
+        elif tipo == 'meio':
+            x = a + (i + 0.5) * h
+        else:
+            raise ValueError("Tipo deve ser 'esquerda', 'direita' ou 'meio'")
+        soma += f(x)
+    return soma * h
 
+f
+resultado = soma_riemann(f, a, b, c, tipo='meio')
+print(resultado)
